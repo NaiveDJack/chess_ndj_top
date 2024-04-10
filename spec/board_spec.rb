@@ -12,12 +12,15 @@ describe Board do
   end
 
   context 'on checking square coordinates' do
-    it 'returns the coordinates of a square' do
-      expect(board.coord_locator('a1')).to eq(0)
+    it 'returns the content of a square' do
+      expect(board.sqr_content(board.sqr_coord('a1'))).to eq(0)
     end
-    it 'fails on too long input' do
-      expect(board.coord_locator('a21')).to be(nil)
-      expect(board.coord_locator('a')).to eq(nil)
+    it 'fails on input length different than 2' do
+      expect(board.sqr_coord('a21')).to be(nil)
+      expect(board.sqr_coord('a')).to eq(nil)
+    end
+    it 'fails on coordinate out of bounds' do
+      expect(board.sqr_coord('a9')).to be(nil)
     end
   end
 

@@ -15,11 +15,18 @@ class Board
     }
   end
 
-  # returns the content of a square at coordinates xy, only 2 length strings
-  def coord_locator(string)
+  # returns the coordinates x and y of the square to be used by other functions
+  def sqr_coord(string)
     return nil unless string.length == 2
+    return nil unless ('a'..'h').include?(string[0])
+    return nil unless ('1'..'8').include?(string[1])
 
-    @squares[:"#{string[0]}"][:"#{string[1]}"]
+    [string[0], string[1]]
+  end
+
+  # returns the content of a square at coordinates xy, only 2 length strings
+  def sqr_content(array)
+    @squares[:"#{array[0]}"][:"#{array[1]}"]
   end
 
   # visualization of the chessboard
