@@ -17,11 +17,19 @@ describe Board do
     end
     it 'fails on input length different than 2' do
       expect(board.sqr_coord('a21')).to be(nil)
-      expect(board.sqr_coord('a')).to eq(nil)
+      expect(board.sqr_coord('a')).to be(nil)
     end
     it 'fails on coordinate out of bounds' do
       expect(board.sqr_coord('a9')).to be(nil)
     end
+  end
+
+  context 'on setting a piece in a square' do
+    it 'creates a new Piece object'
+    it 'changes the appropriate @squares value'
+    it 'is visible on the board'
+    it 'does not substitute an existing piece when sub = false'
+    it 'does substitute an existing piece when sub = true'
   end
 
   context 'on move command' do

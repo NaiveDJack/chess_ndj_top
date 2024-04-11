@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../lib/piece'
+
 # legal movespace
 class Board
   def initialize
@@ -27,6 +29,11 @@ class Board
   # returns the content of a square at coordinates xy, only 2 length strings
   def sqr_content(array)
     @squares[:"#{array[0]}"][:"#{array[1]}"]
+  end
+
+  # generates a Piece object and places it on the board
+  def set_piece
+    pass
   end
 
   # visualization of the chessboard
