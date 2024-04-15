@@ -6,7 +6,7 @@ describe Board do
   subject(:board) { described_class.new }
 
   context 'when initiated' do # visual test
-    it 'makes a 8x8 annotated black and white board' do
+    it 'makes a 8x8 annotated board' do
       board.show_board
     end
   end
