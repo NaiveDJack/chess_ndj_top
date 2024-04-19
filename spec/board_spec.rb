@@ -25,9 +25,15 @@ describe Board do
   end
 
   context 'on setting a piece in a square' do
-    it 'creates a new Piece object'
-    it 'changes the appropriate @squares value'
-    it 'is visible on the board'
+    before do
+      board.set_piece('King', 'black', 'a4')
+    end
+    it 'changes the appropriate @squares value' do
+      expect((board.squares[:a][:'4']).char).to be('♚')
+    end
+    it 'is visible on the board' do # visual test
+      board.show_board
+    end
     it 'does not substitute an existing piece when sub = false'
     it 'does substitute an existing piece when sub = true'
   end
