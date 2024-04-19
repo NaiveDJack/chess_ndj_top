@@ -4,6 +4,10 @@ require_relative '../lib/piece'
 
 # legal movespace
 class Board
+  include Piece
+
+  attr_reader :squares
+
   def initialize
     @squares = {
       'a': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
@@ -32,17 +36,18 @@ class Board
   end
 
   # generates a Piece object and places it on the board
-  def set_piece
-    pass
+  def set_piece(piece_name, piece_color, pos)
+    where = sqr_coord(pos)
+    @squares[:"#{where[0]}"][:"#{where[1]}"] = create_piece(piece_name, piece_color)
   end
 
   # visualization of the chessboard
   def show_board
     puts('┌───┬───┬───┬───┬───┬───┬───┬───┐')
-    7.downto(1) do |row|
+    8.downto(1) do |row|
       print('│ ')
       @squares.each_value do |column|
-        print(column[:"r#{row}"], '  │ ')
+        column[:"#{row}"] === 0 ? print(column[:"#{row}"], ' │ ') : print(column[:"#{row}"].char, ' │ ')
       end
       row == 1 ? puts(' ', '└───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '├───┼───┼───┼───┼───┼───┼───┼───┤')
     end
