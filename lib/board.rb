@@ -43,13 +43,14 @@ class Board
 
   # visualization of the chessboard
   def show_board
-    puts('┌───┬───┬───┬───┬───┬───┬───┬───┐')
+    puts('  ┌───┬───┬───┬───┬───┬───┬───┬───┐')
     8.downto(1) do |row|
-      print('│ ')
+      print("#{row} │ ")
       @squares.each_value do |column|
-        column[:"#{row}"] === 0 ? print(column[:"#{row}"], ' │ ') : print(column[:"#{row}"].char, ' │ ')
+        column[:"#{row}"].zero? ? print('  │ ') : print(column[:"#{row}"].char, ' │ ')
       end
-      row == 1 ? puts(' ', '└───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '├───┼───┼───┼───┼───┼───┼───┼───┤')
+      row == 1 ? puts(' ', '  └───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '  ├───┼───┼───┼───┼───┼───┼───┼───┤')
     end
+    puts '    a   b   c   d   e   f   g   h'
   end
 end
