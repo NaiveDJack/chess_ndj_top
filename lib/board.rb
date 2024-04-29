@@ -47,7 +47,7 @@ class Board
     8.downto(1) do |row|
       print("#{row} │ ")
       @squares.each_value do |column|
-        column[:"#{row}"].zero? ? print('  │ ') : print(column[:"#{row}"].char, ' │ ')
+        column[:"#{row}"] === 0 ? print('  │ ') : print(column[:"#{row}"].char, ' │ ')
       end
       row == 1 ? puts(' ', '  └───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '  ├───┼───┼───┼───┼───┼───┼───┼───┤')
     end
