@@ -2,9 +2,9 @@
 
 # scaffolding for the Piece module tests
 
-require_relative '../lib/pieces/king'
+require_relative '../lib/pieces'
 
-describe King do
+describe Pieces::King do
   subject(:piece) { described_class.new('black') }
 
   context 'when initiated' do

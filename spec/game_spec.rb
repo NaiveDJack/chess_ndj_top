@@ -3,7 +3,7 @@
 require_relative '../lib/game'
 
 describe Game do
-  subject (:game) { described_class.new}
+  subject(:game) { described_class.new }
 
   context 'when initiated' do
     xit 'sets all pieces in initial position'

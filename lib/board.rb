@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../lib/piece'
+require_relative '../lib/pieces'
 
 # legal movespace
 class Board
-  include Piece
+  include Pieces
 
   attr_reader :squares
 
@@ -17,7 +17,7 @@ class Board
       'e': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
       'f': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
       'g': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'h': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
+      'h': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 }
     }
   end
 
