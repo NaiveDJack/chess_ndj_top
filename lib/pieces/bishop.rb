@@ -7,8 +7,8 @@ class Bishop
   def initialize(color)
     @name = 'bishop'
     @color = color
-    @char = '♚' if color == 'black'
-    @char = '♔' if color == 'white'
+    @char = '♝' if color == 'black'
+    @char = '♗' if color == 'white'
     @move_dir = %w[diag]
     @move_dist = 7
     @move_special = []

@@ -7,8 +7,8 @@ class Rook
   def initialize(color)
     @name = 'rook'
     @color = color
-    @char = '♚' if color == 'black'
-    @char = '♔' if color == 'white'
+    @char = '♜' if color == 'black'
+    @char = '♖	' if color == 'white'
     @move_dir = %w[ortho]
     @move_dist = 7
     @move_special = %w[castle]

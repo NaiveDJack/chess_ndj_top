@@ -7,8 +7,8 @@ class Queen
   def initialize(color)
     @name = 'queen'
     @color = color
-    @char = '♚' if color == 'black'
-    @char = '♔' if color == 'white'
+    @char = '♛' if color == 'black'
+    @char = '♕' if color == 'white'
     @move_dir = %w[ortho diag]
     @move_dist = 7
     @move_special = []
