@@ -14,8 +14,8 @@ describe Pieces do
       expect(create_piece('Pawn', 'white').char).to be('♙')
     end
 
-    it 'creates a black square' do
-      expect(create_piece('Square', 'black').char).to be('⬛')
+    it 'creates an empty square' do
+      expect(create_piece('Square', 'black').char).to be(' ')
     end
 
     it 'returns nil if the color is inappropriate' do

@@ -13,7 +13,7 @@ describe Board do
 
   context 'on checking square coordinates' do
     it 'returns the content of a square' do
-      expect(board.sqr_content(board.sqr_coord('a1'))).to eq(0)
+      expect(board.sqr_content(board.sqr_coord('a1')).char).to eq(' ')
     end
     it 'fails on input length different than 2' do
       expect(board.sqr_coord('a21')).to be(nil)

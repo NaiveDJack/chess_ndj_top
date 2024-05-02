@@ -9,16 +9,14 @@ class Board
   attr_reader :squares
 
   def initialize
-    @squares = {
-      'a': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'b': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'c': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'd': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'e': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'f': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'g': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 },
-      'h': { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0 }
-    }
+    @squares = {}
+
+    ('a'..'h').each do |row|
+      squares[:"#{row}"] = {}
+      ('1'..'8').each do |column|
+        squares[:"#{row}"][:"#{column}"] = create_piece('Square', 'white')
+      end
+    end
   end
 
   # returns the coordinates x and y of the square to be used by other functions
@@ -43,11 +41,11 @@ class Board
 
   # visualization of the chessboard
   def show_board
-    puts('  ┌───┬───┬───┬───┬───┬───┬───┬───┐')
+    puts('', '  ┌───┬───┬───┬───┬───┬───┬───┬───┐')
     8.downto(1) do |row|
       print("#{row} │ ")
       @squares.each_value do |column|
-        column[:"#{row}"] === 0 ? print('  │ ') : print(column[:"#{row}"].char, ' │ ')
+        print(column[:"#{row}"].char, ' │ ')
       end
       row == 1 ? puts(' ', '  └───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '  ├───┼───┼───┼───┼───┼───┼───┼───┤')
     end

@@ -12,7 +12,7 @@ module Pieces
 
   # pawn piece features
   class Pawn
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'pawn'
@@ -27,7 +27,7 @@ module Pieces
 
   # king piece features
   class King
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'king'
@@ -42,7 +42,7 @@ module Pieces
 
   # bishop piece features
   class Bishop
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'bishop'
@@ -57,7 +57,7 @@ module Pieces
 
   # queen piece features
   class Queen
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'queen'
@@ -72,7 +72,7 @@ module Pieces
 
   # king piece features
   class Knight
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'knight'
@@ -87,7 +87,7 @@ module Pieces
 
   # rook piece features
   class Rook
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'rook'
@@ -102,13 +102,13 @@ module Pieces
 
   # empty square piece features
   class Square
-    attr_reader :name, :color, :char
+    attr_reader :char
 
     def initialize(color)
       @name = 'square'
       @color = color
-      @char = '⬛' if color == 'black'
-      @char = '⬜' if color == 'white'
+      @char = ' ' if color == 'black'
+      @char = ' ' if color == 'white'
     end
   end
 end
