@@ -11,10 +11,10 @@ class Board
   def initialize
     @squares = {}
 
-    ('a'..'h').each do |row|
-      squares[:"#{row}"] = {}
-      ('1'..'8').each do |column|
-        squares[:"#{row}"][:"#{column}"] = create_piece('Square', 'white')
+    ('a'..'h').each do |column|
+      squares[:"#{column}"] = {}
+      ('1'..'8').each do |row|
+        squares[:"#{column}"][:"#{row}"] = create_piece('Square', 'white')
       end
     end
   end
@@ -42,12 +42,12 @@ class Board
   # visualization of the chessboard
   def show_board
     puts('', '  ┌───┬───┬───┬───┬───┬───┬───┬───┐')
-    8.downto(1) do |row|
-      print("#{row} │ ")
-      @squares.each_value do |column|
-        print(column[:"#{row}"].char, ' │ ')
+    8.downto(1) do |column|
+      print("#{column} │ ")
+      @squares.each_value do |row|
+        print(row[:"#{column}"].char, ' │ ')
       end
-      row == 1 ? puts(' ', '  └───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '  ├───┼───┼───┼───┼───┼───┼───┼───┤')
+      column == 1 ? puts(' ', '  └───┴───┴───┴───┴───┴───┴───┴───┘') : puts(' ', '  ├───┼───┼───┼───┼───┼───┼───┼───┤')
     end
     puts '    a   b   c   d   e   f   g   h'
   end

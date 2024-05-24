@@ -6,7 +6,7 @@ module Pieces
   def create_piece(name, color)
     return unless %w[black white].include?(color)
 
-    piece_name = Pieces.const_get(name.to_s)
+    piece_name = Pieces.const_get(name.to_s.capitalize)
     piece_name.new(color)
   end
 
@@ -21,7 +21,7 @@ module Pieces
       @char = '♙' if color == 'white'
       @move_dir = %w[forward]
       @move_dist = 1
-      @move_special = %w[diag_cap en_passant promotion]
+      @move_special = %w[headstart diag_capture en_passant promotion]
     end
   end
 
@@ -79,7 +79,7 @@ module Pieces
       @color = color
       @char = '♞' if color == 'black'
       @char = '♘' if color == 'white'
-      @move_dir = %w[knight]
+      @move_dir = %w[knight_jump]
       @move_dist = 1
       @move_special = []
     end
@@ -93,7 +93,7 @@ module Pieces
       @name = 'rook'
       @color = color
       @char = '♜' if color == 'black'
-      @char = '♖	' if color == 'white'
+      @char = '♖' if color == 'white'
       @move_dir = %w[ortho]
       @move_dist = 7
       @move_special = %w[castle]
